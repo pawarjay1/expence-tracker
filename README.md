@@ -1,12 +1,43 @@
-# React + Vite
+# 💰 Expense Tracking Web App 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and responsive expense tracker built using **React.js** that helps users record and manage their income and expenses. It calculates your balance in real-time and stores data locally in your browser so you don’t lose it on refresh.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📸 Demo
 
-## Expanding the ESLint configuration
+  
+[Live Demo](https://your-live-demo-link.com)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧾 Features
+
+- ✅ Add income and expense transactions
+- ✅ Automatically calculate total balance, income, and expenses
+- ✅ Delete transactions
+- ✅ Search transaction history
+- ✅ Persist data using `localStorage`
+- ✅ Responsive design for mobile and desktop
+- ✅ Real-time updates with React state
+
+---
+
+## 🛠 Tech Stack
+
+- ⚛️ **React.js** (Functional Components + Hooks)
+- 🎯 **Context API** for state management (optional)
+- 💾 **LocalStorage** for saving data
+- 🎨 CSS / styled-components 
+
+---
+
+## ⚙️ Installation & Setup Guide
+
+Follow these steps to run the project locally:
+
+### 1. Clone the Repository
+
+```bash
+git clone 
+cd expense-tracker
