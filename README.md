@@ -6,8 +6,7 @@ A simple and responsive expense tracker built using **React.js** that helps user
 
 ## 📸 Demo
 
-  
-[Live Demo](https://your-live-demo-link.com)
+<a href="[https://pawar-jay-portfoilio.vercel.app/](https://expence-tracker-2p7orttx1-pawarjay1s-projects.vercel.app/)" > Live demo  </a>
 
 ---
 
