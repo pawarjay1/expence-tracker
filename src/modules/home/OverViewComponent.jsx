@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import { AppData } from "../../context/Datacontext";
+import { NavLink } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -88,81 +87,20 @@ const RadioBox = styled.div`
     margin: 0 10px;
   }
 `;
-const AddTransactionView = (props) => {
-  // const [amount, setAmount] = useState();
-  // const [desc, setDesc] = useState();
-  // const [type, setType] = useState("EXPENSE");
 
-  const {amount,setAmount,desc, setDesc,type, setType} = useContext(AppData); 
-
-  return (
-    <AddTransactionContainer isAddTxnVisible={props.isAddTxnVisible}>
-      <input
-        placeholder="Amount"
-        type="number"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-      />
-      <input
-        placeholder="Description"
-        value={desc}
-        onChange={(e) => setDesc(e.target.value)}
-      />
-      <RadioBox>
-        <input
-          type="radio"
-          id="expense"
-          name="type"
-          value="EXPENSE"
-          checked={type === "EXPENSE"}
-          onChange={(e) => setType(e.target.value)}
-        />
-        <label htmlFor="expense">Expense</label>
-        <input
-          type="radio"
-          id="income"
-          name="type"
-          value="INCOME"
-          checked={type === "INCOME"}
-          onChange={(e) => setType(e.target.value)}
-        />
-        <label htmlFor="Expense">Income</label>
-      </RadioBox>
-
-      <AddTransaction
-        onClick={() =>
-          props.addTransaction({
-            id: Date.now(),
-            amount: Number(amount),
-            desc,
-            type,
-          })
-        }
-      >
-        Add Transaction
-      </AddTransaction>
-    </AddTransactionContainer>
-  );
-};
 const OverViewComponent = (props) => {
-  const [isAddTxnVisible, toggleAddTXn] = useState(false);
   return (
     <Container>
       <BalanceBox>
         Balance: ${props.income - props.expense}
-        <AddTransaction onClick={() => toggleAddTXn((isVisible) => !isVisible)}>
-          {isAddTxnVisible ? "CANCEL" : "ADD"}
-        </AddTransaction>
+        <NavLink to="/AddExpanse" style={{textDecoration:"none"}}>
+          <AddTransaction>
+            Add
+          </AddTransaction>
+        </NavLink>
+
       </BalanceBox>
-      {isAddTxnVisible && (
-        <AddTransactionView
-          isAddTxnVisible={isAddTxnVisible}
-          addTransaction={(payload) => {
-            props.addTransaction(payload);
-            toggleAddTXn((isVisible) => !isVisible);
-          }}
-        />
-      )}
+
       <ExpenseContainer>
         <ExpenseBox>
           Expense<span>${props.expense}</span>

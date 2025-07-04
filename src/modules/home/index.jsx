@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect} from "react";
 import styled from "styled-components";
 import OverViewComponent from "./OverViewComponent";
 import TransactionsComponent from "./TransactionsComponent";
@@ -17,11 +17,8 @@ const Container = styled.div`
 `;
 
 const HomeComponent = (props) => {
-    // const [transactions, updateTransaction] = useState([]);
-    // const [expense, updateExpense] = useState(0);
-    // const [income, updateIncome] = useState(0);
-
-    const {transactions,updateTransaction,expense, updateExpense,income, updateIncome} = useContext(AppData);
+  
+    const { transactions, updateTransaction, expense, updateExpense, income, updateIncome } = useContext(AppData);
 
     const calculateBalance = () => {
         let exp = 0;
@@ -36,17 +33,16 @@ const HomeComponent = (props) => {
     };
     useEffect(() => calculateBalance(), [transactions]);
 
-    const addTransaction = (payload) => {
-        const transactionArray = [...transactions];
-        transactionArray.push(payload);
-        updateTransaction(transactionArray);
-    };
+    // Save to localStorage whenever transactions change
+    useEffect(() => {
+        localStorage.setItem('transactions', JSON.stringify(transactions));
+    }, [transactions]);
+
     return (
         <Container>
             <OverViewComponent
                 expense={expense}
                 income={income}
-                addTransaction={addTransaction}
             />
             {transactions?.length ? (
                 <TransactionsComponent transactions={transactions} />

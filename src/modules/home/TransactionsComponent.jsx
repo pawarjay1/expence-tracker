@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { AppData } from "../../context/Datacontext";
 
 const Container = styled.div`
@@ -35,19 +35,29 @@ const Cell = styled.div`
   justify-content: space-between;
   border-right: 4px solid ${(props) => (props.isExpense ? "red" : "green")};
 `;
+
+
 const TransactionCell = (props) => {
+
+  const {transactions,updateTransaction} = useContext(AppData);
+
+  const handleDoubleClick = (id) => {
+    const updated = transactions.filter((tx) => tx.id !== id);
+    updateTransaction(updated);
+  };
+
   return (
     <Cell isExpense={props.payload?.type === "EXPENSE"}>
       <span>{props.payload?.desc}</span>
       <span>${props.payload?.amount}</span>
+      <button onClick={() => handleDoubleClick(props.payload?.id)}>X</button>
     </Cell>
   );
 };
-const TransactionsComponent = (props) => {
-  // const [searchText, updateSearchText] = useState("");
-  // const [filteredTransaction, updateTxn] = useState(props.transactions);
 
-  const {searchText, updateSearchText,filteredTransaction, updateTxn} = useContext(AppData);
+const TransactionsComponent = (props) => {
+
+  const { searchText, updateSearchText, filteredTransaction, updateTxn ,updateTransaction } = useContext(AppData);
 
   const filterData = (searchText) => {
     if (!searchText || !searchText.trim().length) {
@@ -64,6 +74,7 @@ const TransactionsComponent = (props) => {
   useEffect(() => {
     filterData(searchText);
   }, [props.transactions]);
+
 
   return (
     <Container>
