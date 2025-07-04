@@ -91,13 +91,13 @@ export const AddExpanse = (props) => {
 
   return (
     <Container>
-      Balance: ₹{income - expense}
+      Balance: ${income - expense}
       <ExpenseContainer>
         <ExpenseBox>
-          Expense<span>₹{expense}</span>
+          Expense<span>${expense}</span>
         </ExpenseBox>
         <ExpenseBox isIncome={true}>
-          Income<span>₹{income}</span>
+          Income<span>${income}</span>
         </ExpenseBox>
       </ExpenseContainer>
 
@@ -109,11 +109,13 @@ export const AddExpanse = (props) => {
             type="number"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
+            style={{margin:"5px"}}
           />
           <input
             placeholder="Description"
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
+            style={{margin:"5px"}}
           />
           <RadioBox>
             <input
@@ -139,7 +141,9 @@ export const AddExpanse = (props) => {
           <NavLink to="/" style={{ textDecoration: "none" }}>
             <AddTransaction
               onClick={() => {
-                if(amount.trim()==="" || desc.trim() === "")
+                if(amount.trim()==="" || desc.trim() === ""){
+                  return;
+                }
                 addTransaction({
                   id: Date.now(),
                   amount: Number(amount),

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -89,10 +90,11 @@ const RadioBox = styled.div`
 `;
 
 const OverViewComponent = (props) => {
+
   return (
     <Container>
       <BalanceBox>
-        Balance: ₹{props.income - props.expense}
+        Balance: ${props.income - props.expense}
         <NavLink to="/AddExpanse" style={{textDecoration:"none"}}>
           <AddTransaction>
             Add
@@ -103,10 +105,10 @@ const OverViewComponent = (props) => {
 
       <ExpenseContainer>
         <ExpenseBox>
-          Expense<span>₹{props.expense}</span>
+          Expense<span>${props.expense}</span>
         </ExpenseBox>
         <ExpenseBox isIncome={true}>
-          Income<span>₹{props.income}</span>
+          Income<span>${props.income}</span>
         </ExpenseBox>
       </ExpenseContainer>
     </Container>
