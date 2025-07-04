@@ -91,13 +91,13 @@ export const AddExpanse = (props) => {
 
   return (
     <Container>
-      Balance: ${income - expense}
+      Balance: ₹{income - expense}
       <ExpenseContainer>
         <ExpenseBox>
-          Expense<span>${expense}</span>
+          Expense<span>₹{expense}</span>
         </ExpenseBox>
         <ExpenseBox isIncome={true}>
-          Income<span>${income}</span>
+          Income<span>₹{income}</span>
         </ExpenseBox>
       </ExpenseContainer>
 
