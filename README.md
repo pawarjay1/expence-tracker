@@ -8,8 +8,6 @@ A simple and responsive expense tracker built using **React.js** that helps user
 
 <a href="https://expence-tracker-jagfryxjs-pawarjay1s-projects.vercel.app/" > Live demo  </a>
 
-https://expence-tracker-jagfryxjs-pawarjay1s-projects.vercel.app/
-
 ---
 
 ## 🧾 Features
